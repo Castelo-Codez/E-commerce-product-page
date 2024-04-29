@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: "kumbhsans";
+        src: url("/fonts/KumbhSans-VariableFont_YOPQ\,wght.ttf");
+    }
+    body {
+        font-family: "kumbhsans";
+    }
+}
