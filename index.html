@@ -11,9 +11,9 @@
         <title>ecommerce-product-page</title>
     </head>
     <body class="relative">
-        <header role="banner" class="py-[5vw] lg:py-[0] bg-clr-White">
+        <header role="banner" class="bg-clr-White relative">
             <div
-                class="container flex justify-between items-center lg:border-b lg:border-b-slate-200"
+                class="container flex py-[5vw] lg:py-[0] justify-between items-center lg:border-b lg:border-b-slate-200"
                 aria-label="content wrapper"
             >
                 <div
@@ -180,7 +180,7 @@
                     aria-label="right side "
                     class="flex items-center gap-x-6 md:gap-x-10"
                 >
-                    <div aria-label="cart container ">
+                    <div aria-label="cart container">
                         <button
                             aria-label="cart list openner button"
                             id="cartBoxOpenner"
@@ -201,19 +201,25 @@
                         <div
                             aria-label="cart box"
                             id="cartBox"
-                            class="w-[90%] sm:w-[350px] h-[250px] absolute top-[calc(100%_+_10px)] md:top-[calc(100%_-_30px)] right-[1rem] sm:right-[5rem] bg-clr-White shadow-2xl hidden"
+                            class="w-[90%] sm:w-[350px] h-[280px] absolute top-[calc(100%_+_30px)] md:top-[calc(100%_-_30px)] right-[1rem] sm:right-[5rem] bg-clr-White shadow-2xl hidden z-40"
                         >
                             <h4
                                 aria-label="title"
-                                class="text-[1rem] p-5 text-clr-Dark-grayish-blue capitalize font-[800]"
+                                class="text-[1rem] p-5 text-black capitalize font-[800]"
                             >
                                 cart
                             </h4>
                             <hr />
+                            <div
+                                class="p-5 text-clr-Dark-grayish-blue font-[700] flex justify-center items-center h-[77%]"
+                                aria-label="content"
+                            >
+                                <span>Your cart is empty</span>
+                            </div>
                         </div>
                     </div>
                     <div
-                        class="w-[40px] md:w-[60px] cursor-pointer border-[2px] border-transparent rounded-full hover:border-clr-Primary-Orange"
+                        class="w-[40px] md:w-[60px] cursor-pointe border-[2px] border-transparent rounded-full hover:border-clr-Primary-Orange"
                         aria-label="account picture"
                         role="button"
                     >
@@ -221,11 +227,280 @@
                             src="/image-avatar.png"
                             class="w-full h-full"
                             alt="avatar"
+                            class="w-full"
                         />
                     </div>
                 </div>
             </div>
         </header>
+        <main role="main">
+            <section
+                aria-label="parent section"
+                class="md:px-14 md:mt-16 md:container md:grid grid-cols-2 gap-x-16 items-center"
+            >
+                <section aria-label="mobile product viewer" class="md:hidden">
+                    <div class="swiper relative">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img
+                                    src="/image-product-1.jpg"
+                                    alt="product-1"
+                                    class="w-full"
+                                />
+                            </div>
+                            <div class="swiper-slide">
+                                <img
+                                    src="/image-product-2.jpg"
+                                    alt="product-2"
+                                    class="w-full"
+                                />
+                            </div>
+                            <div class="swiper-slide">
+                                <img
+                                    src="/image-product-3.jpg"
+                                    alt="product-3"
+                                    class="w-full"
+                                />
+                            </div>
+                            <div class="swiper-slide">
+                                <img
+                                    src="/image-product-4.jpg"
+                                    alt="product-4"
+                                    class="w-full"
+                                />
+                            </div>
+                        </div>
+                        <div
+                            aria-label="controllers container"
+                            class="absolute top-2/4 -translate-y-2/4 z-20 w-[90%] left-2/4 -translate-x-2/4 flex justify-between items-center"
+                        >
+                            <button
+                                role="button"
+                                aria-label="click to get previous product image"
+                                class="swiper-button-prev w-[40px] h-[40px] bg-clr-White rounded-full flex justify-center items-center"
+                            >
+                                <svg
+                                    width="12"
+                                    height="18"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M11 1 3 9l8 8"
+                                        stroke="#1D2026"
+                                        stroke-width="3"
+                                        fill="none"
+                                        fill-rule="evenodd"
+                                    />
+                                </svg>
+                            </button>
+                            <button
+                                role="button"
+                                aria-label="click to get next product image"
+                                class="swiper-button-next w-[40px] h-[40px] bg-clr-White rounded-full flex justify-center items-center"
+                            >
+                                <svg
+                                    width="13"
+                                    height="18"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="m2 1 8 8-8 8"
+                                        stroke="#1D2026"
+                                        stroke-width="3"
+                                        fill="none"
+                                        fill-rule="evenodd"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                <section
+                    aria-label="desktop product viewer"
+                    class="hidden md:block "
+                >
+                    <div aria-label="product show" id="productShower">
+                        <img
+                            src="/image-product-1.jpg"
+                            class="w-full rounded-2xl"
+                            alt=""
+                        />
+                    </div>
+                    <ul
+                        aria-label="click to select product image"
+                        id="listOfProductImages"
+                        role="list"
+                        class="mt-7  grid grid-cols-2 gap-14 lg:grid-cols-4"
+                    >
+                        <li role="listitem">
+                            <button
+                                aria-label="click select image"
+                                type="button"
+                                role="button"
+                            >
+                                <img
+                                    src="/image-product-1.jpg"
+                                    alt="thumbnail"
+                                    class="w-full rounded-2xl"
+                                />
+                            </button>
+                        </li>
+                        <li role="listitem">
+                            <button
+                                aria-label="click select image"
+                                type="button"
+                                role="button"
+                            >
+                                <img
+                                    src="/image-product-2.jpg"
+                                    alt="thumbnail"
+                                    class="w-full rounded-2xl"
+                                />
+                            </button>
+                        </li>
+                        <li role="listitem">
+                            <button
+                                aria-label="click select image"
+                                type="button"
+                                role="button"
+                            >
+                                <img
+                                    src="/image-product-3.jpg"
+                                    alt="thumbnail"
+                                    class="w-full rounded-2xl"
+                                />
+                            </button>
+                        </li>
+                        <li role="listitem">
+                            <button
+                                aria-label="click select image"
+                                type="button"
+                                role="button"
+                            >
+                                <img
+                                    src="/image-product-4.jpg"
+                                    alt="thumbnail"
+                                    class="w-full rounded-2xl"
+                                />
+                            </button>
+                        </li>
+                    </ul>
+                </section>
+                <section
+                    aria-label="product info"
+                    class="p-8 pt-8 md:pt-0 lg:py-12"
+                >
+                    <div aria-label="content wrapper">
+                        <h2
+                            class="text-clr-Primary-Orange uppercase font-[700] tracking-[2px] text-sm"
+                        >
+                            sneaker company
+                        </h2>
+                        <h3
+                            class="mt-3 md:mt-5 font-[700] text-[2rem] lg:text-[2.8rem]"
+                        >
+                            Fall Limited Edition Sneakers
+                        </h3>
+                        <p class="mt-3 md:mt-5 text-clr-Dark-grayish-blue">
+                            These low-profile sneakers are your perfect casual
+                            wear companion. Featuring a durable rubber outer
+                            sole, they’ll withstand everything the weather can
+                            offer.
+                        </p>
+                        <div
+                            aria-label="price info"
+                            class="w-full mt-3 md:mt-5 relative md:pb-8"
+                        >
+                            <span
+                                aria-label="price"
+                                class="text-[1.8rem] font-[700] tracking-[1px] relative after:content-['50%'] after:absolute after:text-sm after:top-2/4 after:-translate-y-2/4 after:-right-12 after:bg-clr-Pale-orange after:text-clr-Primary-Orange after:p-[3px] after:rounded-lg"
+                                >$125.00</span
+                            >
+                            <span
+                                aria-label="old price"
+                                class="text-clr-Grayish-blue line-through absolute right-5 top-2/4 -translate-y-2/4 md:left-0 md:bottom-14"
+                                >$250.00</span
+                            >
+                        </div>
+                        <div
+                            class="mt-2 md:mt-4 grid grid-cols-1 gap-5 lg:grid-cols-40%1fr"
+                            aria-label="add or substract products"
+                        >
+                            <div class="px-7 flex justify-between items-center">
+                                <button
+                                    aria-label="substract products"
+                                    role="button"
+                                    type="button"
+                                >
+                                    <svg
+                                        width="12"
+                                        height="4"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    >
+                                        <defs>
+                                            <path
+                                                d="M11.357 3.332A.641.641 0 0 0 12 2.69V.643A.641.641 0 0 0 11.357 0H.643A.641.641 0 0 0 0 .643v2.046c0 .357.287.643.643.643h10.714Z"
+                                                id="a"
+                                            />
+                                        </defs>
+                                        <use
+                                            fill="#FF7E1B"
+                                            fill-rule="nonzero"
+                                            xlink:href="#a"
+                                        />
+                                    </svg>
+                                </button>
+                                <span id="product number" class="font-[700]"
+                                    >0</span
+                                >
+                                <button
+                                    aria-label="add products"
+                                    type="button"
+                                    role="button"
+                                >
+                                    <svg
+                                        width="12"
+                                        height="12"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    >
+                                        <defs>
+                                            <path
+                                                d="M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z"
+                                                id="b"
+                                            />
+                                        </defs>
+                                        <use
+                                            fill="#FF7E1B"
+                                            fill-rule="nonzero"
+                                            xlink:href="#b"
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+                            <button
+                                aria-label="add products to cart"
+                                class="border-none bg-clr-Primary-Orange flex justify-center gap-x-4 items-center p-4 rounded-xl text-clr-White font-[500]"
+                            >
+                                <svg
+                                    width="22"
+                                    height="20"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        class="fill-white"
+                                        d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                                        fill-rule="nonzero"
+                                    />
+                                </svg>
+                                Add to cart
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
         <script type="module" src="/src/main.js"></script>
     </body>
 </html>

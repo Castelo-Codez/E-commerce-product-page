@@ -20,6 +20,9 @@ export default {
                 "clr-White": "hsl(0, 0%, 100%)",
                 "clr-light-black-overlay": "#000000ab",
             },
+            gridTemplateColumns: {
+                "40%1fr": "40% 1fr",
+            },
             container: {
                 center: true,
                 padding: "15px",
